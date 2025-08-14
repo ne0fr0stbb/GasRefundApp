@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Include all shared preferences -->
+    <include domain="sharedpref" path="."/>
+    <!-- Include all databases -->
+    <include domain="database" path="."/>
+    <!-- Exclude other specific files or directories if needed -->
+    <!-- <exclude domain="file" path="my_temporary_cache_file.txt"/> -->
+</full-backup-content>

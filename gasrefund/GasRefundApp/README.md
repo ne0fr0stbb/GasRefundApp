@@ -1,158 +1,107 @@
-# Gas Refund Android App
+# Gas Refund App
 
-A mobile application designed to replicate the functionality of your Excel-based gas refund tracking system for **Chickmont Foods Ltd**. This app allows you to track business travel, calculate refunds, and generate professional PDF reports in the same format as your current Excel sheets.
+Gas Refund App is an Android application designed to help users track their travel, manage vehicle mileage, and generate reports for gas refund purposes. It simplifies the process of recording trips, calculating distances, and maintaining records for reimbursement.
 
 ## Features
 
-### ✅ Core Functionality
-- **Trip Entry**: Add and edit travel entries with date, locations, mileage, and reasons
-- **Automatic Calculations**: Auto-calculate distance and refund amounts
-- **Monthly Summaries**: View current month totals and refund amounts
-- **PDF Report Generation**: Generate reports matching your Excel format exactly
-- **Data Persistence**: Local SQLite database storage with Room
+*   **Trip Logging:** Easily add new travel entries, including origin, destination, mileage, vehicle used, and reason for travel.
+*   **Return Trip Generation:** Quickly create return trips with swapped locations.
+*   **Mileage Tracking:** Records start and end mileage for accurate distance calculation.
+*   **Vehicle Management:** Add and manage multiple vehicles with their details.
+*   **Signature Management:** Store digital signatures for authenticating reports.
+*   **Report Generation:**
+    *   Generate PDF reports of travel entries for a selected period.
+    *   Export travel data to CSV format.
+*   **Data Visualization:** View travel data and trends through graphs (e.g., mileage per month).
+*   **Data Backup & Restore:**
+    *   Export all app data to a JSON file.
+    *   Import data from a previously exported JSON file.
+    *   View backup statistics.
+*   **User Settings:** Customize application preferences.
+*   **Monthly Summary:** View summaries of travel for specific months.
 
-### ✅ User Experience
-- **Material Design 3**: Modern, clean interface following Android design guidelines
-- **Intuitive Navigation**: Easy-to-use forms with validation and auto-completion
-- **Smart Defaults**: Pre-populated locations and vehicles based on your usage patterns
-- **Offline Capable**: Works completely offline with local data storage
+## Screenshots
 
-### ✅ Report Features
-- **Exact Excel Format**: Matches your current "Travel Refund" layout
-- **Company Branding**: Includes "Chickmont Foods Ltd" header and formatting
-- **Professional Output**: PDF reports with proper signatures lines and totals
-- **Easy Sharing**: Share reports via email or other apps
+*(Placeholder: Add screenshots of your app's main screens here. For example: Main Dashboard, Add Trip Screen, Reports List, Vehicle Management, Graphs Screen)*
 
-## App Structure
+*   *MainScreen.png*
+*   *AddTripScreen.png*
+*   *ReportsScreen.png*
 
-### Database Schema
-- **TravelEntry**: Stores individual trip records
-- **Vehicle**: Manages company vehicles (L3274, etc.)
-- **Location**: Common locations with usage tracking for auto-completion
+## Tech Stack & Key Libraries
 
-### Key Components
-- **MainActivity**: Dashboard with monthly summary and trip list
-- **AddTripActivity**: Add/edit individual trips
-- **ReportActivity**: Generate and share PDF reports
-- **PDFReportGenerator**: Creates PDF reports matching Excel format
-- **TravelEntryViewModel**: Manages data and business logic
+*   **Programming Language:** Kotlin
+*   **Architecture:** Likely MVVM (ViewModel, Repository, Room)
+*   **UI:**
+    *   Android XML Layouts
+    *   Material Design Components
+    *   RecyclerView for lists
+*   **Data Persistence:**
+    *   Room Database for local storage
+*   **Asynchronous Programming:**
+    *   Kotlin Coroutines
+*   **Navigation:**
+    *   AndroidX Navigation Component
+*   **PDF Generation:**
+    *   iTextG
+*   **Graphing/Charts:**
+    *   MPAndroidChart
+*   **Networking/Services (Potentially for future features or if using Firebase fully):**
+    *   Google Play Services (Location, Maps, Auth)
+    *   Firebase (Auth, Analytics)
+*   **Dependency Management:**
+    *   Gradle
 
-## Pre-loaded Data
+## Building the Project
 
-The app comes with your commonly used locations pre-populated:
-- Chickmont (highest usage)
-- Guinea
-- Oldbury
-- Brighthall
-- K&E
-- Ridge
-- Ellesmere
-- Hatchery
-- ZRS
-- D.E Computers
-- Rainforest Swan Street
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/GasRefundApp.git
+    ```
+2.  **Open in Android Studio:**
+    *   Open Android Studio.
+    *   Select "Open an existing Android Studio project".
+    *   Navigate to the cloned directory and select it.
+3.  **Sync Gradle:** Let Android Studio sync the Gradle files and download dependencies.
+4.  **Build and Run:**
+    *   Select a device or emulator.
+    *   Click the "Run" button.
 
-Default vehicle: **L3274**
+*(Note: If you are using Google Play Services or Firebase, you might need to add your own `google-services.json` file to the `app/` directory and configure API keys as needed.)*
 
-## Report Output
+## How to Use (Basic User Guide)
 
-Generated PDF reports include:
-- **Header**: "CHICKMONT FOODS LTD" / "TRAVEL REFUND"
-- **Employee Info**: "NAME: JASON BURNHAM" / "VEHICLE: L3274"
-- **Trip Table**: Date, From/To Description, Mileage, Distance, Manager's Initial, Reason
-- **Summary**: Total distance, rate per km (configurable, default $2.00), refund due
-- **Signatures**: Employee signature, Manager's signature, and date lines
+1.  **Add Vehicles:** Navigate to "Manage Vehicles" from the menu or a dedicated button and add details for each vehicle you use.
+2.  **Log Trips:**
+    *   From the main screen or a dedicated "Add Trip" button, enter the details for your journey (from, to, vehicle, start mileage, reason).
+    *   Save the trip.
+    *   When the trip is complete, edit the entry to add the end mileage.
+3.  **Manage Signatures:** If required for reports, add your digital signature via the "Manage Signatures" option.
+4.  **Generate Reports:**
+    *   Go to "Saved Reports" or a report generation section.
+    *   Select the desired month or period.
+    *   Choose the report format (PDF/CSV).
+    *   Generate and save/share the report.
+5.  **View Graphs:** Access the "View Graphs" section to see visual representations of your travel data.
+6.  **Backup Data:** Regularly use the "Backup Data" feature in settings or the menu to export your data to a JSON file and store it safely.
 
-## Installation & Setup
+## Further Documentation Areas
 
-### Prerequisites
-- Android Studio Arctic Fox or later
-- Android SDK API Level 24+ (Android 7.0)
-- Kotlin support
+For more comprehensive documentation, consider expanding on:
 
-### Build Instructions
-1. Open Android Studio
-2. Click "Open an Existing Project"
-3. Navigate to the `GasRefundApp` folder and select it
-4. Wait for Gradle sync to complete
-5. Connect an Android device or start an emulator
-6. Click "Run" to build and install the app
+*   **Detailed User Guide:** Step-by-step instructions for all features with screenshots.
+*   **Developer Guide:**
+    *   Project structure overview.
+    *   Explanation of core components (ViewModels, Repositories, DAOs, utility classes).
+    *   Database schema details.
+    *   Information on how to contribute (coding style, pull request process).
+*   **API Documentation (if applicable):** If the app interacts with any external APIs.
+*   **Troubleshooting Guide:** Common issues and solutions.
 
-### Permissions Required
-- **Storage**: To save PDF reports to external storage
-- **Location** (optional): For potential future GPS integration
+## Contributing
 
-## Usage Guide
+*(Optional: Add guidelines here if you are open to contributions. For example: "Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.")*
 
-### Adding a Trip
-1. Tap the "+" button or "Add Trip"
-2. Select the date (defaults to today)
-3. Enter from/to locations (auto-completes from frequent locations)
-4. Input start and end mileage (distance calculates automatically)
-5. Select vehicle (defaults to L3274)
-6. Add reason (optional)
-7. Tap "Save Trip"
+## License
 
-### Generating Reports
-1. From the main screen, tap "Generate Report"
-2. The app will create a PDF for the current month
-3. Reports are saved to Documents/GasRefundReports/
-4. The PDF automatically opens for viewing
-5. Share via email or other apps
-
-### Data Management
-- All data is stored locally on your device
-- The app automatically tracks location usage for better auto-completion
-- Edit trips by tapping on them from the main list
-- Monthly totals update automatically
-
-## Technical Details
-
-### Architecture
-- **MVVM Pattern**: Clean separation of concerns
-- **Room Database**: Local SQLite database with type-safe queries  
-- **LiveData**: Reactive data updates for UI
-- **Coroutines**: Async operations for database and PDF generation
-- **Material Design**: Modern UI components and theming
-
-### Libraries Used
-- **Android Jetpack**: Room, LiveData, ViewModel, Navigation
-- **Material Components**: UI components and theming
-- **iText PDF**: Professional PDF generation
-- **Kotlin Coroutines**: Asynchronous programming
-
-## Customization
-
-### Rate Per Kilometer
-- Default: $2.00 per km (matches your recent Excel sheets)
-- Can be modified in the TravelEntryViewModel
-
-### Company Information
-- Company name, employee name, and default vehicle can be updated in the strings.xml file
-- PDF formatting can be modified in PDFReportGenerator.kt
-
-### Locations
-- The app learns from your usage and ranks locations by frequency
-- You can add new locations by typing them in the trip entry form
-- Pre-loaded locations match those from your Excel analysis
-
-## Future Enhancements
-
-Potential features for future versions:
-- **GPS Integration**: Auto-populate mileage from GPS tracking
-- **Multiple Employees**: Support for different staff members
-- **Cloud Backup**: Sync data across devices
-- **Receipt Photos**: Attach photos to trip entries
-- **Advanced Reports**: Custom date ranges and filtering
-- **Export/Import**: Backup data to Excel/CSV
-
-## Support
-
-This app replicates your exact Excel workflow but provides the convenience of mobile entry and professional PDF generation. The database structure allows for easy data export if needed, and the PDF format matches your current reporting requirements exactly.
-
-For customizations or issues, refer to the source code comments or Android development documentation.
-
----
-
-**Built for Jason Burnham - Chickmont Foods Ltd**  
-*Streamlining your travel refund process with mobile convenience*
+*(Specify your license here. Common choices are MIT License or Apache License 2.0. If you don't have one, you might consider adding one.)*
